@@ -42,6 +42,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 import static atirek.pothiwala.connection.Connector.ErrorText.checkInternet;
@@ -59,6 +60,7 @@ public class Connector {
     private ConnectListener listener;
     private SwipeRefreshLayout refreshLayout;
     private Dialog loaderDialog;
+    private boolean enableDebug;
 
     public interface ConnectListener {
         void onSuccess(@NonNull String TAG, @Nullable String json, @NonNull Headers headers);
@@ -75,8 +77,9 @@ public class Connector {
         String failureSave = "Unable to save, please try again.";
     }
 
-    public Connector(@NonNull Context context) {
+    public Connector(@NonNull Context context, boolean enableDebug) {
         this.context = context;
+        this.enableDebug = enableDebug;
     }
 
     public void setRefreshLayout(@NonNull SwipeRefreshLayout refreshLayout) {
@@ -133,6 +136,7 @@ public class Connector {
     public void Request(@NonNull final String TAG, @NonNull final Call<String> connect) {
 
         if (isNoInternet(context)) {
+            enableLoader(false);
             listener.onFailure(TAG, true, checkInternet);
             return;
         }
@@ -315,6 +319,12 @@ public class Connector {
         }
     }
 
+    private void checkLog(String TAG, Object data) {
+        if (enableDebug) {
+            Log.d(TAG + ">>", data.toString());
+        }
+    }
+
     @Nullable
     public static String getMacAddress() {
         try {
@@ -346,12 +356,6 @@ public class Connector {
         }
         return null;
         //return "02:00:00:00:00:00";
-    }
-
-    private static void checkLog(String TAG, Object data) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG + ">>", data.toString());
-        }
     }
 
     private static File getFile(Context context, String url) {
