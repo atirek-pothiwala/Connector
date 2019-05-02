@@ -16,5 +16,5 @@ Step 1. Add the JitPack repository in your root build.gradle at the end of repos
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.atu09:Connector:1.0'
+	        implementation 'com.github.atu09:Connector:1.0.1'
           }
