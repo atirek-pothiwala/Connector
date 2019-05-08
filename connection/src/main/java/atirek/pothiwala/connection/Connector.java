@@ -69,7 +69,7 @@ public class Connector {
     }
 
     public interface ErrorText {
-        String checkInternet = "This field cannot be empty.";
+        String checkInternet = "Please check internet connection, try again later.";
         String failureConnect = "Unable to connect to the server.";
         String errorSomething = "Something went wrong, please try again.";
         String failureUpload = "Unable to upload, please try again.";
