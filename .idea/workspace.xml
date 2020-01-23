@@ -28,21 +28,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/Connector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="305" column="13" lean-forward="true" selection-start-line="305" selection-start-column="13" selection-end-line="305" selection-end-column="13" />
+            <state relative-caret-position="900">
+              <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="class#ConnectListener#0;class#Connector#0" />
                 <element signature="class#ErrorText#0;class#Connector#0" />
                 <element signature="method#Connector#0;class#Connector#0" />
@@ -50,74 +42,17 @@
                 <element signature="method#getClient#0;class#Connector#0" />
                 <element signature="method#isNoInternet#0;class#Connector#0" />
                 <element signature="method#enableLoader#0;class#Connector#0" />
-                <element signature="e#4260#4392#1" />
-                <element signature="e#4330#4382#1" />
-                <element signature="e#4398#4671#1" />
-                <element signature="e#4466#4521#1" />
-                <element signature="e#4594#4661#1" />
                 <element signature="method#Request#0;class#Connector#0" />
-                <element signature="e#4805#4927#1" />
-                <element signature="class#5096:5942" />
-                <element signature="method#onResponse#0;class#5096:5942" />
-                <element signature="method#onFailure#0;class#5096:5942" />
-                <element signature="e#5849#5990#1" />
-                <element signature="e#5996#6127#1" />
                 <element signature="method#Upload#0;class#Connector#0" />
-                <element signature="e#6286#6375#1" />
-                <element signature="class#6566:7959" />
-                <element signature="method#onResponse#0;class#6566:7959" />
-                <element signature="e#6787#7205#0" />
-                <element signature="e#7226#7421#0" />
-                <element signature="method#onFailure#0;class#6566:7959" />
-                <element signature="e#7638#7787#1" />
-                <element signature="e#7793#7935#1" />
                 <element signature="method#Download#0;class#Connector#0" />
-                <element signature="e#8103#8192#1" />
-                <element signature="class#8340:11061" />
-                <element signature="e#8422#8454#0" />
-                <element signature="method#onResponse#0;class#8340:11061" />
-                <element signature="e#8642#10045#1" />
-                <element signature="class#8726:10011" />
-                <element signature="method#doInBackground#0;class#8726:10011" />
-                <element signature="method#onPostExecute#0;class#8726:10011" />
-                <element signature="e#9699#9837#1" />
-                <element signature="e#9843#9954#1" />
-                <element signature="e#10051#10244#1" />
-                <element signature="method#onFailure#0;class#8340:11061" />
-                <element signature="e#10732#10901#1" />
-                <element signature="e#10907#11065#1" />
                 <element signature="method#cancelCall#0;class#Connector#0" />
-                <element signature="e#11212#11250#1" />
                 <element signature="method#checkLog#0;class#Connector#0" />
-                <element signature="e#11336#11395#1" />
                 <element signature="method#getMacAddress#0;class#Connector#0" />
-                <element signature="e#11472#12374#0" />
-                <element signature="e#11652#12364#1" />
-                <element signature="e#11730#11779#1" />
-                <element signature="e#11892#11942#1" />
-                <element signature="e#12051#12155#1" />
-                <element signature="e#12205#12300#1" />
-                <element signature="e#12395#12439#0" />
                 <element signature="method#getFile#0;class#Connector#0" />
                 <element signature="method#getParams#0;class#Connector#0" />
-                <element signature="e#12849#13096#0" />
-                <element signature="e#12926#12982#1" />
-                <element signature="e#12988#13030#1" />
-                <element signature="e#13119#13164#0" />
                 <element signature="method#fromStream#0;class#Connector#0" />
-                <element signature="e#13509#13583#1" />
                 <element signature="method#writeResponseBodyToDisk#0;class#Connector#0" />
-                <element signature="e#13714#14922#0" />
-                <element signature="e#13824#14613#0" />
-                <element signature="e#14123#14530#1" />
-                <element signature="e#14223#14277#1" />
-                <element signature="e#14636#14681#0" />
-                <element signature="e#14690#14912#0" />
-                <element signature="e#14733#14793#1" />
-                <element signature="e#14837#14898#1" />
-                <element signature="e#14945#14982#0" />
                 <element signature="method#createPartFromString#0;class#Connector#0" />
-                <element signature="e#15108#15155#1" />
                 <element signature="method#prepareFilePart#0;class#Connector#0" />
                 <element signature="method#createPartFromJsonObject#0;class#Connector#0" />
               </folding>
@@ -176,6 +111,41 @@
       <pane id="AndroidView">
         <subPane>
           <expand>
+            <path>
+              <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
+              <item name="connection" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
+              <item name="connection" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
+            </path>
+            <path>
+              <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
+              <item name="connection" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
+              <item name="connection" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="atirek" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
+              <item name="connection" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="atirek" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="pothiwala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
+              <item name="connection" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="atirek" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="pothiwala" type="462c0819:PsiDirectoryNode" />
+              <item name="connection" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
@@ -336,6 +306,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="828" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32904148" />
@@ -346,10 +317,11 @@
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Resources Explorer" order="8" />
+      <window_info anchor="bottom" id="Find" weight="0.32959327" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.32971507" />
       <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.39891452" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.39831698" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="5" weight="0.32971507" />
       <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
@@ -408,13 +380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/connection/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -432,13 +397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.5.0/5c17035548a41ec60f00291163d36596a23ddd1a/retrofit-2.5.0-sources.jar!/retrofit2/Call.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
@@ -446,11 +404,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/connection/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connection/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/Connector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="305" column="13" lean-forward="true" selection-start-line="305" selection-start-column="13" selection-end-line="305" selection-end-column="13" />
+        <state relative-caret-position="900">
+          <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="class#ConnectListener#0;class#Connector#0" />
             <element signature="class#ErrorText#0;class#Connector#0" />
             <element signature="method#Connector#0;class#Connector#0" />
@@ -458,74 +434,17 @@
             <element signature="method#getClient#0;class#Connector#0" />
             <element signature="method#isNoInternet#0;class#Connector#0" />
             <element signature="method#enableLoader#0;class#Connector#0" />
-            <element signature="e#4260#4392#1" />
-            <element signature="e#4330#4382#1" />
-            <element signature="e#4398#4671#1" />
-            <element signature="e#4466#4521#1" />
-            <element signature="e#4594#4661#1" />
             <element signature="method#Request#0;class#Connector#0" />
-            <element signature="e#4805#4927#1" />
-            <element signature="class#5096:5942" />
-            <element signature="method#onResponse#0;class#5096:5942" />
-            <element signature="method#onFailure#0;class#5096:5942" />
-            <element signature="e#5849#5990#1" />
-            <element signature="e#5996#6127#1" />
             <element signature="method#Upload#0;class#Connector#0" />
-            <element signature="e#6286#6375#1" />
-            <element signature="class#6566:7959" />
-            <element signature="method#onResponse#0;class#6566:7959" />
-            <element signature="e#6787#7205#0" />
-            <element signature="e#7226#7421#0" />
-            <element signature="method#onFailure#0;class#6566:7959" />
-            <element signature="e#7638#7787#1" />
-            <element signature="e#7793#7935#1" />
             <element signature="method#Download#0;class#Connector#0" />
-            <element signature="e#8103#8192#1" />
-            <element signature="class#8340:11061" />
-            <element signature="e#8422#8454#0" />
-            <element signature="method#onResponse#0;class#8340:11061" />
-            <element signature="e#8642#10045#1" />
-            <element signature="class#8726:10011" />
-            <element signature="method#doInBackground#0;class#8726:10011" />
-            <element signature="method#onPostExecute#0;class#8726:10011" />
-            <element signature="e#9699#9837#1" />
-            <element signature="e#9843#9954#1" />
-            <element signature="e#10051#10244#1" />
-            <element signature="method#onFailure#0;class#8340:11061" />
-            <element signature="e#10732#10901#1" />
-            <element signature="e#10907#11065#1" />
             <element signature="method#cancelCall#0;class#Connector#0" />
-            <element signature="e#11212#11250#1" />
             <element signature="method#checkLog#0;class#Connector#0" />
-            <element signature="e#11336#11395#1" />
             <element signature="method#getMacAddress#0;class#Connector#0" />
-            <element signature="e#11472#12374#0" />
-            <element signature="e#11652#12364#1" />
-            <element signature="e#11730#11779#1" />
-            <element signature="e#11892#11942#1" />
-            <element signature="e#12051#12155#1" />
-            <element signature="e#12205#12300#1" />
-            <element signature="e#12395#12439#0" />
             <element signature="method#getFile#0;class#Connector#0" />
             <element signature="method#getParams#0;class#Connector#0" />
-            <element signature="e#12849#13096#0" />
-            <element signature="e#12926#12982#1" />
-            <element signature="e#12988#13030#1" />
-            <element signature="e#13119#13164#0" />
             <element signature="method#fromStream#0;class#Connector#0" />
-            <element signature="e#13509#13583#1" />
             <element signature="method#writeResponseBodyToDisk#0;class#Connector#0" />
-            <element signature="e#13714#14922#0" />
-            <element signature="e#13824#14613#0" />
-            <element signature="e#14123#14530#1" />
-            <element signature="e#14223#14277#1" />
-            <element signature="e#14636#14681#0" />
-            <element signature="e#14690#14912#0" />
-            <element signature="e#14733#14793#1" />
-            <element signature="e#14837#14898#1" />
-            <element signature="e#14945#14982#0" />
             <element signature="method#createPartFromString#0;class#Connector#0" />
-            <element signature="e#15108#15155#1" />
             <element signature="method#prepareFilePart#0;class#Connector#0" />
             <element signature="method#createPartFromJsonObject#0;class#Connector#0" />
           </folding>
