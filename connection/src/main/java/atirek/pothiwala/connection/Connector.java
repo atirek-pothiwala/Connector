@@ -62,9 +62,9 @@ public class Connector {
     private boolean enableDebug;
 
     public interface ConnectListener {
-        void onSuccess(@NonNull String TAG, @Nullable String json, @NonNull Headers headers);
+        void onSuccess(int statusCode, @Nullable String json, @NonNull Headers headers);
 
-        void onFailure(@NonNull String TAG, boolean isNetworkIssue, @Nullable String errorMessage);
+        void onFailure(boolean isNetworkIssue, @Nullable String errorMessage);
     }
 
     public interface ErrorText {
@@ -136,7 +136,7 @@ public class Connector {
 
         if (isNoInternet(context)) {
             enableLoader(false);
-            listener.onFailure(TAG, true, checkInternet);
+            listener.onFailure(true, checkInternet);
             return;
         }
 
@@ -150,14 +150,8 @@ public class Connector {
             public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
 
                 enableLoader(false);
-
-                if (!call.isCanceled()) {
-                    checkLog(TAG, "Response: " + response.body());
-                    listener.onSuccess(TAG, response.body(), response.headers());
-                } else {
-                    checkLog(TAG, "Request Cancelled");
-                    listener.onFailure(TAG, false, "");
-                }
+                checkLog(TAG, "Response: " + response.body());
+                listener.onSuccess(response.code(), response.body(), response.headers());
             }
 
             @Override
@@ -167,10 +161,10 @@ public class Connector {
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure");
-                    listener.onFailure(TAG, false, failureConnect);
+                    listener.onFailure(false, failureConnect);
                 } else {
                     checkLog(TAG, "Request Cancelled");
-                    listener.onFailure(TAG, false, "");
+                    listener.onFailure(false, "");
                 }
             }
         });
@@ -179,7 +173,7 @@ public class Connector {
     public void Upload(@NonNull final String TAG, @NonNull Call<ResponseBody> connect) {
 
         if (isNoInternet(context)) {
-            listener.onFailure(TAG, true, checkInternet);
+            listener.onFailure(true, checkInternet);
             return;
         }
 
@@ -195,17 +189,12 @@ public class Connector {
                 enableLoader(false);
 
                 try {
-                    if (!call.isCanceled()) {
-                        checkLog(TAG, "Response: " + response.body());
-                        listener.onSuccess(TAG, fromStream(response.body().byteStream()), response.headers());
-                    } else {
-                        checkLog(TAG, "Request Cancelled");
-                        listener.onFailure(TAG, false, "");
-                    }
+                    checkLog(TAG, "Response: " + response.body());
+                    listener.onSuccess(response.code(), fromStream(response.body().byteStream()), response.headers());
                 } catch (Exception e) {
                     e.printStackTrace();
                     checkLog(TAG, "Exception: " + e.getMessage());
-                    listener.onFailure(TAG, false, errorSomething);
+                    listener.onFailure(false, errorSomething);
                 }
             }
 
@@ -216,10 +205,10 @@ public class Connector {
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure");
-                    listener.onFailure(TAG, false, throwable.getMessage());
+                    listener.onFailure(false, throwable.getMessage());
                 } else {
                     checkLog(TAG, "Request Cancelled");
-                    listener.onFailure(TAG, false, failureUpload);
+                    listener.onFailure(false, failureUpload);
                 }
             }
         });
@@ -229,7 +218,7 @@ public class Connector {
     public void Download(@NonNull final String TAG, @NonNull final Call<ResponseBody> connect) {
 
         if (isNoInternet(context)) {
-            listener.onFailure(TAG, true, checkInternet);
+            listener.onFailure(true, checkInternet);
             return;
         }
 
@@ -243,55 +232,45 @@ public class Connector {
             @Override
             public void onResponse(@NonNull Call<ResponseBody> call, @NonNull final Response<ResponseBody> response) {
 
+                if (response.isSuccessful() && response.body() != null) {
+                    checkLog(TAG, "File Found");
 
-                if (!call.isCanceled()) {
+                    new AsyncTask<Boolean, Void, Boolean>() {
 
-                    if (response.isSuccessful() && response.body() != null) {
-                        checkLog(TAG, "File Found");
+                        String filePath;
 
-                        new AsyncTask<Boolean, Void, Boolean>() {
+                        @Override
+                        protected Boolean doInBackground(Boolean... bools) {
 
-                            String filePath;
+                            checkLog(TAG, "doInBackground");
 
-                            @Override
-                            protected Boolean doInBackground(Boolean... bools) {
+                            File file = getFile(context, connect.request().url().toString());
+                            filePath = Uri.fromFile(file).toString();
+                            checkLog(TAG, "FilePath: " + filePath);
+                            return writeResponseBodyToDisk(file, response.body());
+                        }
 
-                                checkLog(TAG, "doInBackground");
+                        @Override
+                        protected void onPostExecute(Boolean isSaved) {
+                            super.onPostExecute(isSaved);
 
-                                File file = getFile(context, connect.request().url().toString());
-                                filePath = Uri.fromFile(file).toString();
-                                checkLog(TAG, "FilePath: " + filePath);
-                                return writeResponseBodyToDisk(file, response.body());
+                            checkLog(TAG, "onPostExecute");
+                            enableLoader(false);
+
+                            if (isSaved) {
+                                listener.onSuccess(response.code(), filePath, response.headers());
+                            } else {
+                                listener.onFailure(false, failureSave);
                             }
 
-                            @Override
-                            protected void onPostExecute(Boolean isSaved) {
-                                super.onPostExecute(isSaved);
-
-                                checkLog(TAG, "onPostExecute");
-                                enableLoader(false);
-
-                                if (isSaved) {
-                                    listener.onSuccess(TAG, filePath, response.headers());
-                                } else {
-                                    listener.onFailure(TAG, false, failureSave);
-                                }
-
-                            }
-                        }.execute();
-
-                    } else {
-                        enableLoader(false);
-
-                        checkLog(TAG, failureDownload);
-                        listener.onFailure(TAG, false, failureDownload);
-                    }
+                        }
+                    }.execute();
 
                 } else {
                     enableLoader(false);
 
-                    checkLog(TAG, "Request Cancelled");
-                    listener.onFailure(TAG, false, "");
+                    checkLog(TAG, failureDownload);
+                    listener.onFailure(false, failureDownload);
                 }
             }
 
@@ -302,10 +281,10 @@ public class Connector {
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure: " + throwable.getMessage());
-                    listener.onFailure(TAG, false, failureDownload);
+                    listener.onFailure(false, failureDownload);
                 } else {
                     checkLog(TAG, "Request Cancelled: " + throwable.getMessage());
-                    listener.onFailure(TAG, false, "");
+                    listener.onFailure(false, "");
                 }
             }
         });
