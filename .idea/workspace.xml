@@ -27,40 +27,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/Connector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#ConnectListener#0;class#Connector#0" />
-                <element signature="class#ErrorText#0;class#Connector#0" />
-                <element signature="method#Connector#0;class#Connector#0" />
-                <element signature="method#setRefreshLayout#0;class#Connector#0" />
-                <element signature="method#getClient#0;class#Connector#0" />
-                <element signature="method#isNoInternet#0;class#Connector#0" />
-                <element signature="method#enableLoader#0;class#Connector#0" />
-                <element signature="method#Request#0;class#Connector#0" />
-                <element signature="method#Upload#0;class#Connector#0" />
-                <element signature="method#Download#0;class#Connector#0" />
-                <element signature="method#cancelCall#0;class#Connector#0" />
-                <element signature="method#checkLog#0;class#Connector#0" />
-                <element signature="method#getMacAddress#0;class#Connector#0" />
-                <element signature="method#getFile#0;class#Connector#0" />
-                <element signature="method#getParams#0;class#Connector#0" />
-                <element signature="method#fromStream#0;class#Connector#0" />
-                <element signature="method#writeResponseBodyToDisk#0;class#Connector#0" />
-                <element signature="method#createPartFromString#0;class#Connector#0" />
-                <element signature="method#prepareFilePart#0;class#Connector#0" />
-                <element signature="method#createPartFromJsonObject#0;class#Connector#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -114,11 +81,6 @@
             <path>
               <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
               <item name="connection" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
-              <item name="connection" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="Connector" type="1abcf292:AndroidViewProjectNode" />
@@ -306,7 +268,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="828" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32904148" />
@@ -423,8 +384,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/Connector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
+        <state relative-caret-position="156">
+          <caret line="135" column="88" selection-start-line="135" selection-start-column="88" selection-end-line="135" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#ConnectListener#0;class#Connector#0" />
