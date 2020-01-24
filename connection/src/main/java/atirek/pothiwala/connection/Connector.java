@@ -32,7 +32,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Headers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -46,7 +45,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 import static atirek.pothiwala.connection.Connector.ErrorText.checkInternet;
-import static atirek.pothiwala.connection.Connector.ErrorText.errorSomething;
 import static atirek.pothiwala.connection.Connector.ErrorText.failureConnect;
 import static atirek.pothiwala.connection.Connector.ErrorText.failureDownload;
 import static atirek.pothiwala.connection.Connector.ErrorText.failureSave;
@@ -63,9 +61,9 @@ public class Connector {
     private boolean enableDebug;
 
     public interface ConnectListener {
-        void onSuccess(int statusCode, @Nullable String json, @NonNull Headers headers);
+        void onSuccess(int statusCode, @Nullable String json, @NonNull String message);
 
-        void onFailure(boolean isNetworkIssue, @Nullable String errorMessage);
+        void onFailure(boolean isNetworkIssue, @NonNull String errorMessage);
     }
 
     public interface ErrorText {
@@ -151,8 +149,22 @@ public class Connector {
             public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
 
                 enableLoader(false);
-                checkLog(TAG, "Response: " + response.body());
-                listener.onSuccess(response.code(), response.body(), response.headers());
+                checkLog(TAG, "Status Code: " + response.code());
+
+                try {
+                    if (response.isSuccessful()){
+                        String json = response.body();
+                        checkLog(TAG, "Response: " + json);
+                        listener.onSuccess(response.code(), json, response.message());
+                    } else {
+                        String json = response.errorBody().string();
+                        checkLog(TAG, "Response: " + json);
+                        listener.onSuccess(response.code(), json, response.message());
+                    }
+                } catch (Exception e){
+                    listener.onSuccess(response.code(), "", response.message());
+                }
+
             }
 
             @Override
@@ -171,7 +183,7 @@ public class Connector {
         });
     }
 
-    public void Upload(@NonNull final String TAG, @NonNull Call<ResponseBody> connect) {
+    public void Upload(@NonNull final String TAG, @NonNull Call<String> connect) {
 
         if (isNoInternet(context)) {
             listener.onFailure(true, checkInternet);
@@ -183,24 +195,38 @@ public class Connector {
         checkLog(TAG, "URL: " + connect.request().url());
         checkLog(TAG, "Params: " + getParams(connect.request().body()));
 
-        connect.enqueue(new Callback<ResponseBody>() {
+        connect.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
 
                 enableLoader(false);
-
+                checkLog(TAG, "Status Code: " + response.code());
                 try {
-                    checkLog(TAG, "Response: " + response.body());
-                    listener.onSuccess(response.code(), fromStream(response.body().byteStream()), response.headers());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    checkLog(TAG, "Exception: " + e.getMessage());
-                    listener.onFailure(false, errorSomething);
+                    if (response.isSuccessful()){
+                        String json = response.body();
+                        checkLog(TAG, "Response: " + json);
+                        listener.onSuccess(response.code(), json, response.message());
+                    } else {
+                        String json = response.errorBody().string();
+                        checkLog(TAG, "Response: " + json);
+                        listener.onSuccess(response.code(), json, response.message());
+                    }
+                } catch (Exception e){
+                    listener.onSuccess(response.code(), "", response.message());
                 }
+
+//                try {
+//                    checkLog(TAG, "Response: " + response.body());
+//                    listener.onSuccess(response.code(), fromStream(response.body().byteStream()), response.message());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    checkLog(TAG, "Exception: " + e.getMessage());
+//                    listener.onFailure(false, errorSomething);
+//                }
             }
 
             @Override
-            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable throwable) {
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable throwable) {
 
                 enableLoader(false);
 
@@ -233,6 +259,8 @@ public class Connector {
             @Override
             public void onResponse(@NonNull Call<ResponseBody> call, @NonNull final Response<ResponseBody> response) {
 
+                checkLog(TAG, "Status Code: " + response.code());
+
                 if (response.isSuccessful() && response.body() != null) {
                     checkLog(TAG, "File Found");
 
@@ -259,7 +287,7 @@ public class Connector {
                             enableLoader(false);
 
                             if (isSaved) {
-                                listener.onSuccess(response.code(), filePath, response.headers());
+                                listener.onSuccess(response.code(), filePath, response.message());
                             } else {
                                 listener.onFailure(false, failureSave);
                             }
