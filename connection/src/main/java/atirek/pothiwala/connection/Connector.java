@@ -70,7 +70,7 @@ public class Connector {
         void onFailure(boolean isNetworkIssue, @NonNull String errorMessage);
     }
 
-    public interface ProgressListener extends ConnectListener {
+    public interface ProgressListener {
         void onUploadProgress(int currentPercent, int totalPercent);
     }
 
