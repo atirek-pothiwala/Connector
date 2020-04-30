@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Connector.iml" filepath="$PROJECT_DIR$/Connector.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/connection/connection.iml" filepath="$PROJECT_DIR$/connection/connection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Connector.iml" filepath="$PROJECT_DIR$/Connector.iml" group="Connector" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Connector/app" />
+      <module fileurl="file://$PROJECT_DIR$/connection/connection.iml" filepath="$PROJECT_DIR$/connection/connection.iml" group="Connector/connection" />
     </modules>
   </component>
 </project>

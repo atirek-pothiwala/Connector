@@ -12,10 +12,13 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
@@ -55,7 +58,8 @@ public class Connector {
     private static final String MULTIPART_FORM_DATA = "multipart/form-data";
 
     private Context context;
-    private ConnectListener listener;
+    private ConnectListener connectListener;
+    private ProgressListener progressListener;
     private SwipeRefreshLayout refreshLayout;
     private Dialog loaderDialog;
     private boolean enableDebug;
@@ -64,6 +68,10 @@ public class Connector {
         void onSuccess(int statusCode, @Nullable String json, @NonNull String message);
 
         void onFailure(boolean isNetworkIssue, @NonNull String errorMessage);
+    }
+
+    public interface ProgressListener extends ConnectListener {
+        void onUploadProgress(int currentPercent, int totalPercent);
     }
 
     public interface ErrorText {
@@ -75,7 +83,7 @@ public class Connector {
         String failureSave = "Unable to save, please try again.";
     }
 
-    public Connector(@NonNull Context context, boolean enableDebug) {
+    Connector(@NonNull Context context, boolean enableDebug) {
         this.context = context;
         this.enableDebug = enableDebug;
     }
@@ -84,8 +92,12 @@ public class Connector {
         this.refreshLayout = refreshLayout;
     }
 
-    public void setListener(@NonNull ConnectListener listener) {
-        this.listener = listener;
+    public void setListener(@NonNull ConnectListener connectListener) {
+        this.connectListener = connectListener;
+    }
+
+    public void setProgressListener(@NonNull ProgressListener progressListener) {
+        this.progressListener = progressListener;
     }
 
     public void setLoaderDialog(@Nullable Dialog loaderDialog) {
@@ -135,7 +147,7 @@ public class Connector {
 
         if (isNoInternet(context)) {
             enableLoader(false);
-            listener.onFailure(true, checkInternet);
+            connectListener.onFailure(true, checkInternet);
             return;
         }
 
@@ -152,17 +164,17 @@ public class Connector {
                 checkLog(TAG, "Status Code: " + response.code());
 
                 try {
-                    if (response.isSuccessful()){
+                    if (response.isSuccessful()) {
                         String json = response.body();
                         checkLog(TAG, "Response: " + json);
-                        listener.onSuccess(response.code(), json, response.message());
+                        connectListener.onSuccess(response.code(), json, response.message());
                     } else {
                         String json = response.errorBody().string();
                         checkLog(TAG, "Response: " + json);
-                        listener.onSuccess(response.code(), json, response.message());
+                        connectListener.onSuccess(response.code(), json, response.message());
                     }
-                } catch (Exception e){
-                    listener.onSuccess(response.code(), "", response.message());
+                } catch (Exception e) {
+                    connectListener.onSuccess(response.code(), "", response.message());
                 }
 
             }
@@ -174,10 +186,10 @@ public class Connector {
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure");
-                    listener.onFailure(false, failureConnect);
+                    connectListener.onFailure(false, failureConnect);
                 } else {
                     checkLog(TAG, "Request Cancelled");
-                    listener.onFailure(false, "");
+                    connectListener.onFailure(false, "");
                 }
             }
         });
@@ -186,7 +198,7 @@ public class Connector {
     public void Upload(@NonNull final String TAG, @NonNull Call<String> connect) {
 
         if (isNoInternet(context)) {
-            listener.onFailure(true, checkInternet);
+            connectListener.onFailure(true, checkInternet);
             return;
         }
 
@@ -202,27 +214,18 @@ public class Connector {
                 enableLoader(false);
                 checkLog(TAG, "Status Code: " + response.code());
                 try {
-                    if (response.isSuccessful()){
+                    if (response.isSuccessful()) {
                         String json = response.body();
                         checkLog(TAG, "Response: " + json);
-                        listener.onSuccess(response.code(), json, response.message());
+                        connectListener.onSuccess(response.code(), json, response.message());
                     } else {
                         String json = response.errorBody().string();
                         checkLog(TAG, "Response: " + json);
-                        listener.onSuccess(response.code(), json, response.message());
+                        connectListener.onSuccess(response.code(), json, response.message());
                     }
-                } catch (Exception e){
-                    listener.onSuccess(response.code(), "", response.message());
+                } catch (Exception e) {
+                    connectListener.onSuccess(response.code(), "", response.message());
                 }
-
-//                try {
-//                    checkLog(TAG, "Response: " + response.body());
-//                    listener.onSuccess(response.code(), fromStream(response.body().byteStream()), response.message());
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                    checkLog(TAG, "Exception: " + e.getMessage());
-//                    listener.onFailure(false, errorSomething);
-//                }
             }
 
             @Override
@@ -232,10 +235,10 @@ public class Connector {
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure");
-                    listener.onFailure(false, throwable.getMessage());
+                    connectListener.onFailure(false, throwable.getMessage());
                 } else {
                     checkLog(TAG, "Request Cancelled");
-                    listener.onFailure(false, failureUpload);
+                    connectListener.onFailure(false, failureUpload);
                 }
             }
         });
@@ -245,14 +248,17 @@ public class Connector {
     public void Download(@NonNull final String TAG, @NonNull final Call<ResponseBody> connect) {
 
         if (isNoInternet(context)) {
-            listener.onFailure(true, checkInternet);
+            connectListener.onFailure(true, checkInternet);
             return;
         }
 
         enableLoader(true);
 
         checkLog(TAG, "URL: " + connect.request().url());
-        checkLog(TAG, "Params: " + getParams(connect.request().body()));
+        RequestBody requestBody = connect.request().body();
+        if (requestBody != null) {
+            checkLog(TAG, "Params: " + getParams(requestBody));
+        }
 
         connect.enqueue(new Callback<ResponseBody>() {
             @SuppressLint("StaticFieldLeak")
@@ -287,9 +293,9 @@ public class Connector {
                             enableLoader(false);
 
                             if (isSaved) {
-                                listener.onSuccess(response.code(), filePath, response.message());
+                                connectListener.onSuccess(response.code(), filePath, response.message());
                             } else {
-                                listener.onFailure(false, failureSave);
+                                connectListener.onFailure(false, failureSave);
                             }
 
                         }
@@ -299,7 +305,7 @@ public class Connector {
                     enableLoader(false);
 
                     checkLog(TAG, failureDownload);
-                    listener.onFailure(false, failureDownload);
+                    connectListener.onFailure(false, failureDownload);
                 }
             }
 
@@ -310,12 +316,14 @@ public class Connector {
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure: " + throwable.getMessage());
-                    listener.onFailure(false, failureDownload);
+                    connectListener.onFailure(false, failureDownload);
                 } else {
                     checkLog(TAG, "Request Cancelled: " + throwable.getMessage());
-                    listener.onFailure(false, "");
+                    connectListener.onFailure(false, "");
                 }
             }
+
+
         });
 
     }
@@ -365,19 +373,15 @@ public class Connector {
         //return "02:00:00:00:00:00";
     }
 
-    private static File getFile(Context context, String url) {
+    private static File getFile(@NonNull Context context, @NonNull String url) {
         File directory = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
         return new File(directory, UUID.randomUUID().toString() + "." + MimeTypeMap.getFileExtensionFromUrl(url));
     }
 
-    private static String getParams(RequestBody request) {
+    private static String getParams(@NonNull RequestBody request) {
         try {
             Buffer buffer = new Buffer();
-            if (request != null) {
-                request.writeTo(buffer);
-            } else {
-                return "";
-            }
+            request.writeTo(buffer);
             return buffer.readUtf8().replace("&", " ");
         } catch (IOException e) {
             return "Unavailable";
@@ -396,21 +400,18 @@ public class Connector {
         return out.toString();
     }
 
-    private boolean writeResponseBodyToDisk(File saveFile, ResponseBody body) {
+    private boolean writeResponseBodyToDisk(@NonNull File saveFile, @NonNull ResponseBody body) {
+
         try {
 
-            InputStream inputStream = null;
-            OutputStream outputStream = null;
+            byte[] fileReader = new byte[4096];
+            InputStream inputStream = body.byteStream();
+            long fileLength = body.contentLength();
+            long downloaded = 0;
+            OutputStream outputStream = new FileOutputStream(saveFile);
 
             try {
-                byte[] fileReader = new byte[4096];
-
-                //long fileSize = body.contentLength();
-                long fileSizeDownloaded = 0;
-
-                inputStream = body.byteStream();
-                outputStream = new FileOutputStream(saveFile);
-
+                Handler handler = new Handler(Looper.getMainLooper());
                 while (true) {
                     int read = inputStream.read(fileReader);
 
@@ -419,45 +420,36 @@ public class Connector {
                     }
 
                     outputStream.write(fileReader, 0, read);
-
-                    fileSizeDownloaded = fileSizeDownloaded + read;
-                    //Utils.checkLog(TAG, "Download: " + fileSizeDownloaded + " of " + fileSize, null);
+                    downloaded = downloaded + read;
+                    handler.post(new ProgressUpdater(downloaded, fileLength, progressListener));
                 }
-
                 outputStream.flush();
-
                 return true;
             } catch (IOException e) {
                 return false;
             } finally {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-
-                if (outputStream != null) {
-                    outputStream.close();
-                }
+                inputStream.close();
+                outputStream.close();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public static RequestBody createPartFromString(String descriptionString) {
-        if (descriptionString == null) {
-            descriptionString = "";
-        }
+    public static RequestBody createPartFromString(@NonNull String descriptionString) {
         return RequestBody.create(MediaType.parse(MULTIPART_FORM_DATA), descriptionString);
     }
 
-    public static MultipartBody.Part prepareFilePart(String partName, String outputFile) {
+    public static MultipartBody.Part prepareFilePart(@NonNull String partName, @NonNull String outputFile, @Nullable ProgressListener listener) {
         File file = new File(outputFile);
-        RequestBody requestFile = RequestBody.create(MediaType.parse(MULTIPART_FORM_DATA), file);
+        ProgressRequestBody requestFile = new ProgressRequestBody(MediaType.parse(MULTIPART_FORM_DATA), file);
+        requestFile.setListener(listener);
         return MultipartBody.Part.createFormData(partName, file.getName(), requestFile);
     }
 
-    public static RequestBody createPartFromJsonObject(String data) {
+    public static RequestBody createPartFromJsonObject(@NonNull String data) {
         return RequestBody.create(MediaType.parse("application/json"), data);
     }
+
 
 }
