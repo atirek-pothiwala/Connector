@@ -128,7 +128,6 @@ public class Connector {
 
     private void loader(boolean loading) {
         if (loading) {
-
             if (loaderDialog != null && !loaderDialog.isShowing()) {
                 loaderDialog.show();
             }
