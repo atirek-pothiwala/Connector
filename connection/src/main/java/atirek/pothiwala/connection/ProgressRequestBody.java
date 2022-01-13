@@ -16,15 +16,15 @@ import okio.BufferedSink;
 
 public class ProgressRequestBody extends RequestBody {
 
-    private File file;
+    private final MediaType mediaType;
+    private final File file;
     private static final int DEFAULT_BUFFER_SIZE = 2048;
 
     private Connector.ProgressListener listener;
-    private MediaType mediaType;
 
     ProgressRequestBody(@Nullable MediaType mediaType, @NonNull File file) {
-        this.file = file;
         this.mediaType = mediaType;
+        this.file = file;
     }
 
     @Override

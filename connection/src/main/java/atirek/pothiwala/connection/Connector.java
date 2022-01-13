@@ -57,12 +57,12 @@ public class Connector {
 
     private static final String MULTIPART_FORM_DATA = "multipart/form-data";
 
-    private Context context;
+    private final Context context;
+    private final boolean enableDebug;
     private ConnectListener connectListener;
     private ProgressListener progressListener;
     private SwipeRefreshLayout refreshLayout;
     private Dialog loaderDialog;
-    private boolean enableDebug;
 
     public interface ConnectListener {
         void onSuccess(int statusCode, @Nullable String json, @NonNull String message);
@@ -126,7 +126,7 @@ public class Connector {
         return true;
     }
 
-    private void enableLoader(boolean loading) {
+    private void loader(boolean loading) {
         if (loading) {
 
             if (loaderDialog != null && !loaderDialog.isShowing()) {
@@ -146,12 +146,12 @@ public class Connector {
     public void Request(@NonNull final String TAG, @NonNull final Call<String> connect) {
 
         if (isNoInternet(context)) {
-            enableLoader(false);
+            loader(false);
             connectListener.onFailure(true, checkInternet);
             return;
         }
 
-        enableLoader(true);
+        loader(true);
 
         checkLog(TAG, "URL: " + connect.request().url());
         checkLog(TAG, "Params: " + getParams(connect.request().body()));
@@ -160,7 +160,7 @@ public class Connector {
             @Override
             public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
 
-                enableLoader(false);
+                loader(false);
                 checkLog(TAG, "Status Code: " + response.code());
 
                 try {
@@ -182,7 +182,7 @@ public class Connector {
             @Override
             public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
 
-                enableLoader(false);
+                loader(false);
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure");
@@ -202,7 +202,7 @@ public class Connector {
             return;
         }
 
-        enableLoader(true);
+        loader(true);
 
         checkLog(TAG, "URL: " + connect.request().url());
         checkLog(TAG, "Params: " + getParams(connect.request().body()));
@@ -211,7 +211,7 @@ public class Connector {
             @Override
             public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
 
-                enableLoader(false);
+                loader(false);
                 checkLog(TAG, "Status Code: " + response.code());
                 try {
                     if (response.isSuccessful()) {
@@ -231,7 +231,7 @@ public class Connector {
             @Override
             public void onFailure(@NonNull Call<String> call, @NonNull Throwable throwable) {
 
-                enableLoader(false);
+                loader(false);
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure");
@@ -252,7 +252,7 @@ public class Connector {
             return;
         }
 
-        enableLoader(true);
+        loader(true);
 
         checkLog(TAG, "URL: " + connect.request().url());
         RequestBody requestBody = connect.request().body();
@@ -290,7 +290,7 @@ public class Connector {
                             super.onPostExecute(isSaved);
 
                             checkLog(TAG, "onPostExecute");
-                            enableLoader(false);
+                            loader(false);
 
                             if (isSaved) {
                                 connectListener.onSuccess(response.code(), filePath, response.message());
@@ -302,7 +302,7 @@ public class Connector {
                     }.execute();
 
                 } else {
-                    enableLoader(false);
+                    loader(false);
 
                     checkLog(TAG, failureDownload);
                     connectListener.onFailure(false, failureDownload);
@@ -312,7 +312,7 @@ public class Connector {
             @Override
             public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable throwable) {
 
-                enableLoader(false);
+                loader(false);
 
                 if (!call.isCanceled()) {
                     checkLog(TAG, "Request Failure: " + throwable.getMessage());

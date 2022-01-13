@@ -3,9 +3,10 @@ package atirek.pothiwala.connection;
 import androidx.annotation.Nullable;
 
 public class ProgressUpdater implements Runnable {
-    private long uploaded;
-    private long total;
-    private Connector.ProgressListener listener;
+
+    private final long uploaded;
+    private final long total;
+    private final Connector.ProgressListener listener;
 
     ProgressUpdater(long uploaded, long total, @Nullable Connector.ProgressListener listener) {
         this.uploaded = uploaded;
