@@ -8,7 +8,7 @@ public class ProgressUpdater implements Runnable {
     private final long total;
     private final Connector.ProgressListener listener;
 
-    ProgressUpdater(long uploaded, long total, @Nullable Connector.ProgressListener listener) {
+    public ProgressUpdater(long uploaded, long total, @Nullable Connector.ProgressListener listener) {
         this.uploaded = uploaded;
         this.total = total;
         this.listener = listener;
