@@ -22,7 +22,7 @@ public class ProgressRequestBody extends RequestBody {
 
     private Connector.ProgressListener listener;
 
-    ProgressRequestBody(@Nullable MediaType mediaType, @NonNull File file) {
+    public ProgressRequestBody(@Nullable MediaType mediaType, @NonNull File file) {
         this.mediaType = mediaType;
         this.file = file;
     }
