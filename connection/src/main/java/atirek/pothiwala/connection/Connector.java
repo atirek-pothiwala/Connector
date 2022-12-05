@@ -83,7 +83,7 @@ public class Connector {
         String failureSave = "Unable to save, please try again.";
     }
 
-    Connector(@NonNull Context context, boolean enableDebug) {
+    public Connector(@NonNull Context context, boolean enableDebug) {
         this.context = context;
         this.enableDebug = enableDebug;
     }
