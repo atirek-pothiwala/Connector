@@ -382,7 +382,7 @@ public class Connector {
             Buffer buffer = new Buffer();
             request.writeTo(buffer);
             return buffer.readUtf8().replace("&", " ");
-        } catch (IOException e) {
+        } catch (Exception e) {
             return "Unavailable";
         }
     }
