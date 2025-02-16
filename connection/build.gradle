@@ -1,12 +1,17 @@
 plugins {
-    id 'com.android.application' version '8.5.2'
+    id 'com.android.library'
+    id 'maven-publish'
 }
 
 android {
-    compileSdk 34
+    namespace 'atirek.pothiwala.connection'
+    compileSdk 35
 
     defaultConfig {
-        minSdkVersion 21
+        minSdk 21
+        versionCode 1
+        versionName "1.0.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -15,19 +20,40 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+        }
     }
-    namespace 'atirek.pothiwala.connection'
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.squareup.retrofit2:retrofit:2.11.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.11.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-
     testImplementation 'junit:junit:4.13.2'
+
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            afterEvaluate {
+                from components.findByName("release")
+            }
+            groupId = "atirek.pothiwala"
+            artifactId = "connection"
+            version = "1.0.0"
+
+        }
+    }
 }
