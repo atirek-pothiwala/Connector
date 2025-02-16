@@ -13,6 +13,9 @@ import java.util.List;
 
 public class Connectivity {
 
+    /**
+     * Fetch your device MAC Address
+     * */
     @Nullable
     public static String getMacAddress() {
         try {
@@ -45,6 +48,9 @@ public class Connectivity {
         return null;
     }
 
+    /**
+     * Check whether you are connected to internet or not.
+     * */
     @SuppressLint("MissingPermission")
     public static boolean isInternetAvailable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

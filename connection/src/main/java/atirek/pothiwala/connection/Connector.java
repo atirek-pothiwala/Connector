@@ -34,6 +34,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import atirek.pothiwala.connection.extensions.ConnectListener;
+import atirek.pothiwala.connection.extensions.ErrorCode;
 import atirek.pothiwala.connection.extensions.ProgressListener;
 import atirek.pothiwala.connection.extensions.ProgressUpdater;
 import okhttp3.OkHttpClient;
@@ -55,26 +56,6 @@ public class Connector {
     private ProgressListener progressListener;
     private SwipeRefreshLayout refreshLayout;
     private Dialog loader;
-
-    public enum ErrorCode {
-        internetFailure("Please check internet connection, try again later."),
-        requestFailure("Unable to connect to the server."),
-        requestCancel(null),
-        errorSomething("Something went wrong, please try again."),
-        uploadFailure("Unable to upload, please try again."),
-        downloadFailure("Unable to download, please try again."),
-        saveFailure("Unable to save, please try again.");
-
-        private final String message;
-
-        ErrorCode(String message) {
-            this.message = message;
-        }
-
-        String string() {
-            return message;
-        }
-    }
 
     public Connector(@NonNull Context context) {
         this.context = context;
