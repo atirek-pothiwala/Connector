@@ -1,0 +1,6 @@
+atirek.pothiwala.connection.test.connection-jetified-tracing-1.1.0-0 C:\Users\A\.gradle\caches\transforms-4\1374182c9a1769d604795f918a2bf678\transformed\jetified-tracing-1.1.0\res
+atirek.pothiwala.connection.test.connection-jetified-core-1.6.1-1 C:\Users\A\.gradle\caches\transforms-4\4321324a09a9181a1410564a3cc4a264\transformed\jetified-core-1.6.1\res
+atirek.pothiwala.connection.test.connection-androidTest-2 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\generated\res\resValues\androidTest\debug
+atirek.pothiwala.connection.test.connection-mergeDebugAndroidTestResources-3 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+atirek.pothiwala.connection.test.connection-mergeDebugAndroidTestResources-4 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+atirek.pothiwala.connection.test.connection-debugAndroidTest-5 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

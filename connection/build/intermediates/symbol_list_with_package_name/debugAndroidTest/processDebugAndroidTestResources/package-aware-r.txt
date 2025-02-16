@@ -1,0 +1,3 @@
+atirek.pothiwala.connection.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

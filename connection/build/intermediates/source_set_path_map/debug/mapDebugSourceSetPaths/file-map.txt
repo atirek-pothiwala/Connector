@@ -1,0 +1,9 @@
+atirek.pothiwala.connection-core-1.1.0-0 C:\Users\A\.gradle\caches\transforms-4\78fde55e5a0e9d2c0c2f9f07cc5a3201\transformed\core-1.1.0\res
+atirek.pothiwala.connection-swiperefreshlayout-1.1.0-1 C:\Users\A\.gradle\caches\transforms-4\b796a628eec6178a69d34b1b909c35b3\transformed\swiperefreshlayout-1.1.0\res
+atirek.pothiwala.connection-pngs-2 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\generated\res\pngs\debug
+atirek.pothiwala.connection-resValues-3 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\generated\res\resValues\debug
+atirek.pothiwala.connection-mergeDebugResources-4 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+atirek.pothiwala.connection-mergeDebugResources-5 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+atirek.pothiwala.connection-debug-6 C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\merged_res\debug\mergeDebugResources
+atirek.pothiwala.connection-debug-7 C:\Users\A\Desktop\Projects\Android\Connector\connection\src\debug\res
+atirek.pothiwala.connection-main-8 C:\Users\A\Desktop\Projects\Android\Connector\connection\src\main\res
