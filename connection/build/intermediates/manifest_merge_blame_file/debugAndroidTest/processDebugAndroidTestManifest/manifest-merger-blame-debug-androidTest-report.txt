@@ -3,24 +3,24 @@
 3    package="atirek.pothiwala.connection.test" >
 4
 5    <uses-sdk
-5-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:5:5-74
+5-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:5:5-74
 6        android:minSdkVersion="21"
-6-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:5:15-41
+6-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:5:15-41
 7        android:targetSdkVersion="21" />
-7-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:5:42-71
+7-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:5:42-71
 8
 9    <instrumentation
-9-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:11:5-15:82
+9-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:11:5-15:82
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:11:22-76
+10-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:11:22-76
 11        android:functionalTest="false"
-11-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:14:22-52
+11-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:14:22-52
 12        android:handleProfiling="false"
-12-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:13:22-53
+12-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:13:22-53
 13        android:label="Tests for atirek.pothiwala.connection.test"
-13-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:15:22-80
+13-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:15:22-80
 14        android:targetPackage="atirek.pothiwala.connection.test" />
-14-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:12:22-78
+14-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:12:22-78
 15
 16    <queries>
 16-->[androidx.test:runner:1.6.1] C:\Users\A\.gradle\caches\transforms-4\cf4310b8147a2fef7ca338872cc6ac78\transformed\runner-1.6.1\AndroidManifest.xml:24:5-28:15
@@ -51,14 +51,14 @@
 28-->[androidx.core:core:1.15.0] C:\Users\A\.gradle\caches\transforms-4\682f385c3b103b8b0b74838af49c1f73\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
 29
 30    <application
-30-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:7:5-9:19
+30-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:7:5-9:19
 31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 31-->[androidx.core:core:1.15.0] C:\Users\A\.gradle\caches\transforms-4\682f385c3b103b8b0b74838af49c1f73\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
 32        android:debuggable="true"
 33        android:extractNativeLibs="true" >
 34        <uses-library android:name="android.test.runner" />
-34-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:8:9-60
-34-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9329448399380393234.xml:8:23-57
+34-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:8:9-60
+34-->C:\Users\A\Desktop\Projects\Android\Connector\connection\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest1316710563218151005.xml:8:23-57
 35
 36        <activity
 36-->[androidx.test:core:1.6.1] C:\Users\A\.gradle\caches\transforms-4\4321324a09a9181a1410564a3cc4a264\transformed\jetified-core-1.6.1\AndroidManifest.xml:27:9-34:20
