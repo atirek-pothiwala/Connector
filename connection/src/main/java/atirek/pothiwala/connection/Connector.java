@@ -72,7 +72,7 @@ public class Connector {
     /**
      * Set refresh layout which will be automatically handled.
      * */
-    public Connector setRefreshLayout(@NonNull SwipeRefreshLayout refreshLayout) {
+    public Connector setRefreshLayout(@Nullable SwipeRefreshLayout refreshLayout) {
         this.refreshLayout = refreshLayout;
         return this;
     }
