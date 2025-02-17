@@ -30,21 +30,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98c527b5-c557-4321-ae3e-d1accc239de5" name="Default Changelist" comment="Gradle Issue Fix">
-      <change afterPath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/extensions/ErrorCode.java" afterDir="false" />
+    <list default="true" id="98c527b5-c557-4321-ae3e-d1accc239de5" name="Default Changelist" comment="Library Issue Fix">
+      <change afterPath="$PROJECT_DIR$/connection/consumer-rules.pro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.androidTest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.unitTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/connection/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/Connector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/extensions/ConnectListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/extensions/ConnectListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection/build/.transforms/7d85e88a45d30879484c348f937764d2/transformed/classes/classes_dex/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build/.transforms/7d85e88a45d30879484c348f937764d2/transformed/classes/classes_dex/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection/build/intermediates/dex/debugAndroidTest/mergeLibDexDebugAndroidTest/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build/intermediates/dex/debugAndroidTest/mergeLibDexDebugAndroidTest/0/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection/build/intermediates/incremental/packageDebugAndroidTest/tmp/debugAndroidTest/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build/intermediates/incremental/packageDebugAndroidTest/tmp/debugAndroidTest/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection/build/intermediates/manifest_merge_blame_file/debugAndroidTest/processDebugAndroidTestManifest/manifest-merger-blame-debug-androidTest-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build/intermediates/manifest_merge_blame_file/debugAndroidTest/processDebugAndroidTestManifest/manifest-merger-blame-debug-androidTest-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection/build/outputs/aar/connection-debug.aar" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build/outputs/aar/connection-debug.aar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection/build/outputs/apk/androidTest/debug/connection-debug-androidTest.apk" beforeDir="false" afterPath="$PROJECT_DIR$/connection/build/outputs/apk/androidTest/debug/connection-debug-androidTest.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/helpers/Connectivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/helpers/Connectivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/helpers/RequestCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/connection/src/main/java/atirek/pothiwala/connection/helpers/RequestCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,36 +143,40 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.Connector.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "JAR Application.Connector.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/A/Desktop/Projects/Android/Connector/connection",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Signing Configs" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+    <key name="android.template.packageName">
       <recent name="atirek.pothiwala.connection" />
     </key>
-    <key name="android.template.packageName">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\A\Desktop\Projects\Android\Connector\connection" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="atirek.pothiwala.connection" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -281,7 +289,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739743434985</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Gradle Issue Fix">
+      <option name="closed" value="true" />
+      <created>1739746462456</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739746462457</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Library Issue Fix">
+      <option name="closed" value="true" />
+      <created>1739746508668</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739746508668</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -302,6 +326,7 @@
     <MESSAGE value="version upgrade" />
     <MESSAGE value="Upgraded to SDK 34" />
     <MESSAGE value="Gradle Issue Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gradle Issue Fix" />
+    <MESSAGE value="Library Issue Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Library Issue Fix" />
   </component>
 </project>

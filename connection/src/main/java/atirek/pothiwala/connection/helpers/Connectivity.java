@@ -3,6 +3,8 @@ package atirek.pothiwala.connection.helpers;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 
 import androidx.annotation.Nullable;
@@ -15,7 +17,7 @@ public class Connectivity {
 
     /**
      * Fetch your device MAC Address
-     * */
+     */
     @Nullable
     public static String getMacAddress() {
         try {
@@ -50,13 +52,23 @@ public class Connectivity {
 
     /**
      * Check whether you are connected to internet or not.
-     * */
+     */
     @SuppressLint("MissingPermission")
     public static boolean isInternetAvailable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                Network network = connectivityManager.getActiveNetwork();
+                NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(network);
+                // No network capabilities
+                if (capabilities == null) {
+                    return false;
+                }
+                return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+            } else {
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+            }
         }
         return false;
     }

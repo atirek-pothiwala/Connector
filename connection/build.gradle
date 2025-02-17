@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
 }
 
 android {
@@ -9,10 +8,9 @@ android {
 
     defaultConfig {
         minSdk 21
-        versionCode 1
-        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -29,12 +27,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
 }
 
 dependencies {
@@ -48,18 +40,4 @@ dependencies {
 
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
-}
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            afterEvaluate {
-                from components.findByName("release")
-            }
-            groupId = "atirek.pothiwala"
-            artifactId = "connection"
-            version = "1.0.0"
-
-        }
-    }
 }
