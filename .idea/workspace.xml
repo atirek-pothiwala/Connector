@@ -42,13 +42,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98c527b5-c557-4321-ae3e-d1accc239de5" name="Default Changelist" comment="Added Git Ignore">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.unitTest.iml" afterDir="false" />
+    <list default="true" id="98c527b5-c557-4321-ae3e-d1accc239de5" name="Default Changelist" comment="Modified Git-Ignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/git.ignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739813582023</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Modified Git-Ignore">
+      <option name="closed" value="true" />
+      <created>1739813890916</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739813890917</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -376,6 +379,7 @@
     <MESSAGE value="Connector fixing try 1" />
     <MESSAGE value="Added a sample module" />
     <MESSAGE value="Added Git Ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Git Ignore" />
+    <MESSAGE value="Modified Git-Ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified Git-Ignore" />
   </component>
 </project>
