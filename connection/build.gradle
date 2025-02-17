@@ -30,11 +30,9 @@ android {
     }
 
     publishing {
-        publishing {
-            multipleVariants {
-                allVariants()
-                withJavadocJar()
-            }
+        multipleVariants {
+            allVariants()
+            withJavadocJar()
         }
     }
 }

@@ -4,13 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Connector.iml" filepath="$PROJECT_DIR$/.idea/modules/Connector.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/connection/Connector.connection.iml" filepath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/connection/Connector.connection.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/connection/Connector.connection.main.iml" filepath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/connection/Connector.connection.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/connection/Connector.connection.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/Connector.sample.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/Connector.sample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/Connector.sample.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/Connector.sample.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/Connector.sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/Connector.sample.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/Connector.sample.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/Connector.sample.unitTest.iml" />
     </modules>
   </component>
 </project>

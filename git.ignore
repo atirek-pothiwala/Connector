@@ -1,0 +1,61 @@
+# Gradle build folder
+.gradle/
+build/
+
+# Local configuration files (Android Studio/IntelliJ)
+local.properties
+*.iml
+.idea/
+
+# Keystore files (DO NOT COMMIT YOUR SIGNING KEY!)
+*.jks
+*.keystore
+
+# Log files and crash reports
+*.log
+crashlytics/
+
+# Android Virtual Device (AVD) and Emulator settings
+*.hprof
+*.lock
+*.ndk
+*.orig
+
+# Dependency caches
+/.cxx/
+/.externalNativeBuild/.gradle/
+/.idea/caches/
+/.idea/libraries/
+/.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# Gradle wrapper
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
+
+# Compiled source files
+*.class
+*.dex
+
+# Generated assets and sources
+gen/
+bin/
+obj/
+
+# NDK build artifacts
+*.so
+*.o
+*.obj
+
+# Captures (used in Android Studio)
+captures/
+
+# Miscellaneous OS files
+.DS_Store
+Thumbs.db
+
+# Google Services JSON (Important for Firebase projects)
+google-services.json
+app/google-services.json
