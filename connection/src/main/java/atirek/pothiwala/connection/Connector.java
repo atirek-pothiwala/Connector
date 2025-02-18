@@ -4,8 +4,6 @@ package atirek.pothiwala.connection;
   Created by Atirek Pothiwala on 8/30/2018.
 */
 
-import static atirek.pothiwala.connection.helpers.Connectivity.isInternetAvailable;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
@@ -37,6 +35,7 @@ import atirek.pothiwala.connection.extensions.ConnectListener;
 import atirek.pothiwala.connection.extensions.ErrorCode;
 import atirek.pothiwala.connection.extensions.ProgressListener;
 import atirek.pothiwala.connection.extensions.ProgressUpdater;
+import atirek.pothiwala.connection.helpers.Connectivity;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -63,7 +62,7 @@ public class Connector {
 
     /**
      * To enable Debug Mode which will show logs in your Android Studio LOGCAT
-     * */
+     */
     public Connector setDebug(boolean enable) {
         this.enableDebug = enable;
         return this;
@@ -71,7 +70,7 @@ public class Connector {
 
     /**
      * Set refresh layout which will be automatically handled.
-     * */
+     */
     public Connector setRefreshLayout(@Nullable SwipeRefreshLayout refreshLayout) {
         this.refreshLayout = refreshLayout;
         return this;
@@ -79,7 +78,7 @@ public class Connector {
 
     /**
      * Set listener which will give result and error of your API Calls.
-     * */
+     */
     public Connector setListener(@NonNull ConnectListener listener) {
         this.connectListener = listener;
         return this;
@@ -87,7 +86,7 @@ public class Connector {
 
     /**
      * Set listener which will show download progress.
-     * */
+     */
     public Connector setProgressListener(@NonNull ProgressListener listener) {
         this.progressListener = listener;
         return this;
@@ -95,7 +94,7 @@ public class Connector {
 
     /**
      * Set a custom loader dialog (Optional), which will be automatically handled.
-     * */
+     */
     public Connector setLoader(@Nullable Dialog loaderDialog) {
         this.loader = loaderDialog;
         return this;
@@ -104,7 +103,7 @@ public class Connector {
     /**
      * This method can be used to create a RETROFIT CLIENT using a BASE URL
      * Note: You can create your own custom RETROFIT CLIENT.
-     * */
+     */
     public static Retrofit createClient(String baseUrl) {
         return new Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -177,9 +176,9 @@ public class Connector {
 
     /**
      * This method can be used to request an API such as GET/POST/PUT/DELETE/UPLOAD.
-     * */
+     */
     public void request(@NonNull final String TAG, @NonNull final Call<String> connect) {
-        if (!isInternetAvailable(context)) {
+        if (!Connectivity.isInternetAvailable(context)) {
             loader(false);
             connectListener.onError(ErrorCode.internetFailure);
             return;
@@ -195,9 +194,9 @@ public class Connector {
 
     /**
      * This method can be used to download file as per a specific request of an API.
-     * */
+     */
     public void download(@NonNull final String TAG, @NonNull final Call<ResponseBody> connect) {
-        if (!isInternetAvailable(context)) {
+        if (!Connectivity.isInternetAvailable(context)) {
             connectListener.onError(ErrorCode.internetFailure);
             return;
         }
@@ -271,7 +270,7 @@ public class Connector {
 
     /**
      * This method can be used to cancel running request / download call
-     * */
+     */
     public void cancelCall(Call<?> call) {
         if (call != null && !call.isCanceled() && call.isExecuted()) {
             call.cancel();
@@ -279,8 +278,8 @@ public class Connector {
     }
 
     /**
-    * To generate empty file with specific extension using url
-    * */
+     * To generate empty file with specific extension using url
+     */
     private static File createFile(@NonNull Context context, @NonNull String url) {
         File directory = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
         return new File(directory, UUID.randomUUID().toString() + "." + MimeTypeMap.getFileExtensionFromUrl(url));
@@ -288,7 +287,7 @@ public class Connector {
 
     /**
      * To generate string params with using request body
-     * */
+     */
     private static String createParams(@NonNull RequestBody body) {
         try {
             Buffer buffer = new Buffer();
@@ -313,7 +312,7 @@ public class Connector {
 
     /**
      * To save / write a file in your device and show its progress
-     * */
+     */
     private static boolean writeToDisk(@NonNull File file, @Nullable ProgressListener progressListener, @NonNull ResponseBody body) {
         boolean isWriteResponseBodyToDisk = false;
         try {
