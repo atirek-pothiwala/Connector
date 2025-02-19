@@ -48,16 +48,52 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                def releaseComponent = components.findByName("release")
-                if (releaseComponent != null) {
-                    from releaseComponent
-                } else {
-                    artifact("$buildDir/outputs/aar/connection-release.aar")
+                from components.findByName("release") ?: components.findByName("default")
+
+                groupId = "com.github.atu09"
+                artifactId = "Connector"
+                version = "2.0.0-alpha"
+
+                // Manually specify the AAR file as a fallback
+                pom.withXml {
+                    asNode().appendNode('dependencies').with {
+                        appendNode('dependency').with {
+                            appendNode('groupId', 'com.squareup.retrofit2')
+                            appendNode('artifactId', 'retrofit')
+                            appendNode('version', '2.11.0')
+                            appendNode('scope', 'compile')
+                        }
+
+                        appendNode('dependency').with {
+                            appendNode('groupId', 'com.squareup.retrofit2')
+                            appendNode('artifactId', 'converter-gson')
+                            appendNode('version', '2.11.0')
+                            appendNode('scope', 'compile')
+                        }
+
+                        appendNode('dependency').with {
+                            appendNode('groupId', 'com.squareup.retrofit2')
+                            appendNode('artifactId', 'converter-scalars')
+                            appendNode('version', '2.11.0')
+                            appendNode('scope', 'compile')
+                        }
+
+                        appendNode('dependency').with {
+                            appendNode('groupId', 'androidx.swiperefreshlayout')
+                            appendNode('artifactId', 'swiperefreshlayout')
+                            appendNode('version', '1.1.0')
+                            appendNode('scope', 'compile')
+                        }
+                    }
                 }
             }
         }
         repositories {
             mavenLocal()
         }
+    }
+
+    tasks.named("publishReleasePublicationToMavenLocal") {
+        dependsOn(tasks.named("bundleReleaseAar"))
     }
 }

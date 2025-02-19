@@ -18,6 +18,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../connection/build/generated/ap_generated_sources/release/out">
       <sourceFolder url="file://$MODULE_DIR$/../../../connection/build/generated/ap_generated_sources/release/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../connection/build/generated/ap_generated_sources/release/out" isTestSource="false" generated="true" />
     </content>
     <content url="file://$MODULE_DIR$/../../../connection/build/generated/res/resValues/release">
       <sourceFolder url="file://$MODULE_DIR$/../../../connection/build/generated/res/resValues/release" type="java-resource" generated="true" />
