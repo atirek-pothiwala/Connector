@@ -54,7 +54,8 @@ afterEvaluate {
                 artifactId = "Connector"
                 version = "2.0.0-alpha"
 
-                // Manually specify the AAR file as a fallback
+                artifact("$buildDir/outputs/aar/connection-release.aar")
+
                 pom.withXml {
                     asNode().appendNode('dependencies').with {
                         appendNode('dependency').with {
