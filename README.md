@@ -1,6 +1,6 @@
 # Connector
 
-[![](https://jitpack.io/v/atu09/Connector.svg)](https://jitpack.io/#knight-dev9/android-knight-connector)
+[![](https://jitpack.io/v/atu09/Connector.svg)](https://jitpack.io/#atu09/Connector)
 
 
 To get a Git project into your build:
